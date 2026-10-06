@@ -64,6 +64,20 @@ Luego abrir en el navegador:
 http://127.0.0.1:8000/
 ```
 
+## Panel de administración
+
+Para acceder al panel de administración de Django:
+
+1. Iniciar el servidor con:
+
+python manage.py runserver
+
+2. Abrir en el navegador:
+http://127.0.0.1:8000/admin/
+
+3. Ingresar con el usuario y contraseña del superusuario creado mediante:
+python manage.py createsuperuser
+
 ## Tecnologías utilizadas
 
 - Python

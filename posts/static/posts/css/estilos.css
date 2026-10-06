@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f5f0e8;
+    background-color: #f3eafa;
     color: #333;
 }
 
 header {
-    background-color: #6b4f3a;
+    background-color: #8e6bb5;
     padding: 20px;
 }
 
@@ -34,7 +34,7 @@ main {
 }
 
 h1 {
-    color: #6b4f3a;
+    color: #76539a;
     text-align: center;
 }
 
