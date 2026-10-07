@@ -78,6 +78,59 @@ http://127.0.0.1:8000/admin/
 3. Ingresar con el usuario y contraseña del superusuario creado mediante:
 python manage.py createsuperuser
 
+## CRUD de publicaciones
+
+El proyecto permite realizar las operaciones principales sobre las publicaciones:
+
+- Crear una publicación.
+- Ver el listado de publicaciones.
+- Ver el detalle de una publicación.
+- Editar una publicación.
+- Eliminar una publicación con confirmación.
+
+## Manejo de imágenes
+
+Las publicaciones pueden tener una imagen opcional.
+
+El modelo `Post` utiliza un `ImageField` para guardar las imágenes en la carpeta `media/posts/`.
+
+Se configuraron:
+
+- `MEDIA_URL = '/media/'`
+- `MEDIA_ROOT = BASE_DIR / 'media'`
+
+También se utiliza **Pillow** para permitir el manejo de imágenes.
+
+## Formularios
+
+Se creó `posts/forms.py` utilizando `ModelForm` para facilitar la creación y edición de publicaciones.
+
+El formulario permite ingresar:
+
+- Título
+- Contenido
+- Autor
+- Estado
+- Imagen
+
+Para subir imágenes se utiliza un formulario con `enctype="multipart/form-data"`.
+
+## Cómo probar la carga de imágenes
+
+1. Iniciar el servidor:
+python manage.py runserver
+
+2. Ingresar a:
+http://127.0.0.1:8000/posts/
+
+3. Seleccionar Crear nueva publicación.
+Completar los datos y seleccionar una imagen.
+
+4. Guardar la publicación.
+Entrar al detalle de la publicación para comprobar que la imagen se muestra correctamente.
+
+También es posible editar una publicación y cambiar su imagen.
+
 ## Tecnologías utilizadas
 
 - Python

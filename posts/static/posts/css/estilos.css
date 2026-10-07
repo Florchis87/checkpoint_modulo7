@@ -42,3 +42,12 @@ p {
     line-height: 1.6;
     font-size: 18px;
 }
+
+.acciones-post {
+    margin-top: 25px;
+}
+
+.acciones-post a {
+    display: block;
+    margin-bottom: 15px;
+}
