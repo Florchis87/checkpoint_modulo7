@@ -20,14 +20,20 @@
     <p>Este post no tiene imagen.</p>
 {% endif %}
 
-<div class="acciones-post"></div>
-    <a href="{% url 'editar_post' post.id %}">
-        Editar publicación ✍🏻
-    </a>
+<div class="acciones-post">
 
-    <a href="{% url 'eliminar_post' post.id %}">
-        Eliminar publicación 🗑️
-    </a>
+    <p>
+        <a href="{% url 'editar_post' post.id %}">
+            Editar publicación ✍🏻
+        </a>
+    </p>
+
+    <p>
+        <a href="{% url 'eliminar_post' post.id %}">
+            Eliminar publicación 🗑️
+        </a>
+    </p>
+
 </div>
 
 {% endblock %}
