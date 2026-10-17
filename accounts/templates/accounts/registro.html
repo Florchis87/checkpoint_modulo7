@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+<h1>Crear una cuenta</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Registrarme</button>
+</form>
+
+<p>
+    ¿Ya tenés una cuenta?
+    <a href="{% url 'login' %}">Iniciá sesión acá</a>
+</p>
+
+{% endblock %}

@@ -1,139 +1,172 @@
-# Blog Django
 
-## Descripción
+Blog Django
 
-Este proyecto consiste en la estructura inicial de un blog web desarrollado con Django.
+Descripción
 
-Incluye el proyecto Django `blog_project` y una aplicación principal llamada `posts`.
+Proyecto web desarrollado con Django que permite gestionar publicaciones y usuarios. Incluye el proyecto blog_project y las aplicaciones posts y accounts.
 
-## Aplicación principal
+Aplicaciones
 
-- `posts`: aplicación inicial para manejar las publicaciones del blog.
+posts: permite crear, listar, consultar, editar y eliminar publicaciones.
 
-## Instalación
+accounts: permite registrar usuarios, iniciar y cerrar sesión, y gestionar perfiles personales.
 
-### 1. Clonar el repositorio
+Instalación
 
-```bash
-git clone URL_DEL_REPOSITORIO
-```
+1. Clonar el repositorio
 
-### 2. Entrar a la carpeta del proyecto
+git clone https://github.com/Florchis87/checkpoint_modulo7.git
 
-```bash
+2. Entrar a la carpeta del proyecto
+
 cd blog_django
-```
 
-### 3. Crear el entorno virtual
+3. Crear el entorno virtual
 
-```bash
 python -m venv venv
-```
 
-### 4. Activar el entorno virtual
+4. Activar el entorno virtual
 
 En Windows PowerShell:
 
-```powershell
 .\venv\Scripts\Activate.ps1
-```
 
 En Linux o macOS:
 
-```bash
 source venv/bin/activate
-```
 
-### 5. Instalar las dependencias
+5. Instalar las dependencias
 
-```bash
 pip install -r requirements.txt
-```
 
-## Ejecutar el proyecto
+6. Aplicar las migraciones
 
-Para iniciar el servidor de desarrollo:
+python manage.py migrate
 
-```bash
+7. Iniciar el servidor
+
 python manage.py runserver
-```
 
-Luego abrir en el navegador:
+Abrir el sitio en el navegador:
 
-```text
 http://127.0.0.1:8000/
-```
 
-## Panel de administración
+Usuarios y autenticación
 
-Para acceder al panel de administración de Django:
+La aplicación permite:
 
-1. Iniciar el servidor con:
+Registrar nuevos usuarios.
 
-python manage.py runserver
+Iniciar sesión.
 
-2. Abrir en el navegador:
-http://127.0.0.1:8000/admin/
+Cerrar sesión.
 
-3. Ingresar con el usuario y contraseña del superusuario creado mediante:
-python manage.py createsuperuser
+Acceder a las funcionalidades protegidas después de iniciar sesión.
 
-## CRUD de publicaciones
+Las páginas de listado y detalle de publicaciones permanecen disponibles para visitantes.
+
+Perfiles de usuario
+
+Cada usuario dispone de un perfil con los siguientes campos:
+
+Biografía.
+
+Enlace web.
+
+Avatar opcional.
+
+El perfil puede consultarse y editarse desde las páginas correspondientes.
+
+CRUD de publicaciones
 
 El proyecto permite realizar las operaciones principales sobre las publicaciones:
 
-- Crear una publicación.
-- Ver el listado de publicaciones.
-- Ver el detalle de una publicación.
-- Editar una publicación.
-- Eliminar una publicación con confirmación.
+Crear una publicación.
 
-## Manejo de imágenes
+Ver el listado de publicaciones.
 
-Las publicaciones pueden tener una imagen opcional.
+Consultar el detalle de una publicación.
 
-El modelo `Post` utiliza un `ImageField` para guardar las imágenes en la carpeta `media/posts/`.
+Editar una publicación.
 
-Se configuraron:
+Eliminar una publicación mediante una confirmación.
 
-- `MEDIA_URL = '/media/'`
-- `MEDIA_ROOT = BASE_DIR / 'media'`
+Las funciones para crear, editar y eliminar publicaciones requieren iniciar sesión.
 
-También se utiliza **Pillow** para permitir el manejo de imágenes.
+Manejo de imágenes
 
-## Formularios
+Las publicaciones pueden incluir una imagen opcional mediante el campo ImageField del modelo Post.
 
-Se creó `posts/forms.py` utilizando `ModelForm` para facilitar la creación y edición de publicaciones.
+Las imágenes de las publicaciones se guardan en media/posts/. Los avatares se gestionan mediante el campo correspondiente del perfil.
 
-El formulario permite ingresar:
+La configuración de archivos multimedia utiliza:
 
-- Título
-- Contenido
-- Autor
-- Estado
-- Imagen
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
-Para subir imágenes se utiliza un formulario con `enctype="multipart/form-data"`.
+Se utiliza Pillow para permitir el manejo de imágenes.
 
-## Cómo probar la carga de imágenes
+Formularios
 
-1. Iniciar el servidor:
-python manage.py runserver
+En la aplicación posts se utiliza PostForm, basado en ModelForm, para crear y editar publicaciones.
 
-2. Ingresar a:
-http://127.0.0.1:8000/posts/
+El formulario incluye:
 
-3. Seleccionar Crear nueva publicación.
-Completar los datos y seleccionar una imagen.
+Título.
 
-4. Guardar la publicación.
-Entrar al detalle de la publicación para comprobar que la imagen se muestra correctamente.
+Contenido.
 
-También es posible editar una publicación y cambiar su imagen.
+Autor.
 
-## Tecnologías utilizadas
+Estado.
 
-- Python
-- Django
-- Git
-- GitHub
+Imagen.
+
+Los formularios que permiten subir archivos utilizan enctype="multipart/form-data".
+
+La aplicación accounts incluye formularios para el registro y la edición del perfil.
+
+Cómo probar el proyecto
+
+Iniciar el servidor con python manage.py runserver.
+
+Entrar a http://127.0.0.1:8000/accounts/registro/ para registrar un usuario.
+
+Iniciar sesión desde la página correspondiente.
+
+Entrar a http://127.0.0.1:8000/accounts/perfil/ para consultar el perfil.
+
+Editar la biografía y probar la carga de un avatar.
+
+Entrar a http://127.0.0.1:8000/posts/ para consultar las publicaciones.
+
+Crear una publicación y probar la carga de una imagen.
+
+Abrir el detalle para comprobar que la imagen se muestra correctamente.
+
+Probar la edición y la eliminación de una publicación.
+
+Cerrar sesión e intentar acceder a una ruta protegida para comprobar la redirección al login.
+
+Panel de administración
+
+Para acceder al panel de administración:
+
+Iniciar el servidor.
+
+Abrir http://127.0.0.1:8000/admin/.
+
+Ingresar con un superusuario creado mediante:
+
+python manage.py createsuperuser
+
+Tecnologías utilizadas
+
+Python
+Django
+Pillow
+HTML
+CSS
+Git
+GitHub
+
