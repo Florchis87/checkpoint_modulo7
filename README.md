@@ -170,3 +170,6 @@ CSS
 Git
 GitHub
 
+## Autora
+María Florencia Vega
+Proyecto desarrollado como trabajo final del curso de Python.
